@@ -1,4 +1,4 @@
-# Copyright 2017 Luke Smith, under the GPLv3 License
+# Copyright 2017 Luke Smith, Copyright 2018 Vegar Andreas Bergum, under the GPLv3 License
     
     LARBS is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
