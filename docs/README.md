@@ -1,20 +1,19 @@
-# Luke's Auto-Rice Bootstraping Scripts (LARBS)
+# Vegar's Auto-Rice Bootstrapping Scripts (VARBS)
+[A fork of Luke's Auto-Rice Bootstraping Scripts (LARBS)](http://larbs.xyz)
 
-[Official Website: larbs.xyz](http://larbs.xyz)
-
-This is a set of scripts either can either (1) install Arch Linux automatically
-with a typical Arch ISOed USB, and perhaps more prominently (2) automatically
+This is a set of scripts either can automatically
 install and configure all of the prerequisites for an advanced Linux desktop
-environment, using my configs [here](https://github.com/LukeSmithxyz/voidrice)
+environment, using my configs [here](https://github.com/vegarab/dotfiles)
 as a base.
+
+All scripts are based on an early version of [LARBS](#larbs) (15. December
+2017)
 
 
 ## Table of Contents
 
  - [About](#about)
  - [Installation](#installation)
-   - [On an already existing Arch install](#on-an-already-existing-arch-install)
-   - [Installing Arch automatically](#installing-arch-automatically)
  - [How to Use](#how-to-use)
  - [Permission Details (sudoers file)](#permission-details-sudoers-file)
  - [Version](#version)
@@ -24,66 +23,34 @@ as a base.
 
 ## About
 
-Really, the goal of this script is to start a kind of Linux meta-distribution
-which makes the more nuanced aspects of an advanced Linux setup available to
-even Linux newbies. Of course, it's also a great tool for advanced users who
-want to get into tiling window managers and just generally cool-looking and
-efficient worksetups.
+The goal of these scripts is for me to quickly setup my Linux
+"meta-distribution" quickly and reliably. [LARBS](http://larbs.xyz) made a great foundation for
+this, but the newer versions has added features that I don't need nor want. 
 
 All the core stuff we be installed without prompt, but you'll have the option
 to install some of the larger non-essential packages (LaTeX, LibreOffice,
 Blender, etc.).
 
 
-## Installation
+## Installation on an already existing Arch install
 
-### On an already existing Arch install
-
-This is just as easy. Log in as the root user and run the following.
+This is easy. Log in as the root user and run the following.
 
 ```sh
-curl -LO http://larbs.xyz/larbs.sh #Downloads the script.
-bash larbs.sh #Runs it.
+curl -LO http://vegarab.com/varbs.sh #Downloads the script.
+bash varbs.sh #Runs it.
 ```
 
 After prompting you for some settings and some package choices, the system will
-install my full i3-gaps tiling window manager Desktop Environment. If you don't
-know what that means, don't worry, because I've gone to great lengths to write
-readable instructions about how to go PRO super quick with this system.
+install my full i3-gaps tiling window manager Desktop Environment.
 
 Finally, it will use `git` to download my
-[Voidrice](https://github.com/lukesmithxyz/voidrice)
+[Dotfiles](https://github.com/vegarab/dotfiles)
 dotfiles and will plop them in their proper location for instant use!
 
 Then, finally, once that all is done, you should be able to log out, then log in
 as your newly created user and type `startx` to begin the graphical environment.
 Congrats!
-
-### Installing Arch automatically
-
-I also have a script here for installing Arch automatically. I *only* wrote this
-script so I could quickly install then test the other scripts on new computers,
-but theoretically you could use it as well. *BUT* this is a lazy, pre-alpha
-script which does not give you many options (it automatically chooses the New
-York time zone, US English, GRUB, Network Manager, etc). Even more important, it
-automatically partitions /dev/sda without asking, so unless, you have no
-non-backed up data on your machine, I don't advise running it unless you don't
-mind a full wipe. That said, you can run it like this after booting into an Arch
-live environment:
-
-```sh
-curl -LO http://larbs.xyz/arch.sh #Downloads the script.
-bash arch.sh #Runs it.
-```
-
-After the system installs, you'll have the option of bootstrapping automatically
-into installing my configs as well.
-
-
-## How to Use
-
-Once you're in the environment, just type `Super` / `Mod` / `Windows` + `F1` to
-pull up a document that will explain everything.
 
 
 ## Permission Details (sudoers file)
@@ -106,28 +73,24 @@ not need to repeat putting it in in other terminal windows.
 
 ## Version
 
-We're basically on Version 2.0 now, which is still pretty primitive. I'm adding
-some error handling, if the script fails, check the contents of LARBS.log in
-whatever directory you've run the script. Still, this script is still in the
-Wild West, so I recommend only running it on fresh installs.
+This is basically not a v.1.0 yet, need some more testing and feature to
+justify that. This is pretty much made for personal use, so don't expect too
+much new stuff. You should check out [LARBS](http://larbs.xyz) if you want more
+of a polished "distribution" of Arch. If the script fails, check the 
+contents of VARBS.log in whatever directory you've run the script. Still, this 
+script is still in the Wild West, so it is only recommended running it on fresh installs.
 
 
 ## Why I made this
 
-When you've installed Arch Linux 6 gorrillian times like me, you get pretty sick
-of having to reproduce your favorite configuration on fresh installs over and
-over. When you're a C-list YouTube celebrity, it gets even more difficult when
-literally thousands of people ask you how to do X or get Y.
+I found [LARBS](http://larbs.xyz) to be a great tool for setting up a
+rice/configuration on a fresh Arch install. However, newer versions of 
+[LARBS](http://larbs.xyz) conflicted with some of my personal configurations,
+making me uninstall or totally change some of the settings that [LARBS](http://larbs.xyz) apply. 
 
-The LARBS are a final solution to all of that. These scripts are to be run on a
-fresh install of Arch Linux, and they create a user, install all required
-programs and set up dotfiles directly from Github to give normal people a fairly
-sleek Linux configuration without hundreds of autsitic hours. I did the work, so
-why should you?
-
-I've also documented the configuration fairly well, check out the documentation
-on my **voidrice** repository for that.
-
+This is a fork of [LARBS](http://larbs.xyz) from December 2017. If Luke adds
+some nice features I want to [LARBS](http://larbs.xyz), I might merge those
+changes to VARBS as well.. 
 
 ## Bugs?
 
@@ -140,17 +103,8 @@ Linux" on your preferred search engine, you'll probably get the answer fast.
 
 ### I have some other problem and it didn't install correctly.
 
-In normal circumstances, there are two main causes of misinstalls: faulty
+In normal circumstances, there are two main causes of miss-installs: faulty
 internet connections and errors with particular package upgrades or with the
 pacman keyring. Check yourself if the former may be at fault, but feel free to
 inform me in the latter case; I may be able to provide a quick fix.
-
-### >still using systemd botnet distro and/or not a 100% free-as-in-freedumb Parabola GANOO slash Linocks
-
-I do plan on making an alternative script option for Parabola sooner or later,
-after all Parabola *is* the distro I actually use. If you want to use Arch
-OpenRC or another Arch-based non-systemd distro, I think this script still
-*should* work, although you may have to manually enable Network Manager or
-Pulseaudio. I haven't tested this though. If you have, tell me the results and
-I might implement it.
 
