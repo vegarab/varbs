@@ -1,14 +1,14 @@
 #!/bin/bash
-blue() { printf "\n\033[0;34m $* \033[0m\n\n" && (echo $* >> /tmp/LARBS.log) ;}
-red() { printf "\n\033[0;31m $* \033[0m\n\n" && (echo ERROR: $* >> /tmp/LARBS.log) ;}
+blue() { printf "\n\033[0;34m $* \033[0m\n\n" && (echo $* >> /tmp/VARBS.log) ;}
+red() { printf "\n\033[0;31m $* \033[0m\n\n" && (echo ERROR: $* >> /tmp/VARBS.log) ;}
 
-echo "LARBS started $(date)" >> /tmp/LARBS.log
-chmod 777 /tmp/LARBS.log
+echo "VARBS started $(date)" >> /tmp/VARBS.log
+chmod 777 /tmp/VARBS.log
 
 pacman -S --noconfirm --needed dialog || (echo "Error at script start: Are you sure you're running this as the root user? Are you sure you have an internet connection?" && exit)
 
-dialog --title "Welcome!" --msgbox "Welcome to Luke's Auto-Rice Bootstrapping Script!\n\nThis script will automatically install a fully-featured i3wm Arch Linux desktop, which I use as my main machine.\n\n-Luke" 10 60
-
+dialog --title "Welcome!" --msgbox "Welcome to Vegar's Auto-Rice Bootstrapping
+Script!, a fork of Luke Smith's LARBS.\n\nThis script will automatically install a fully-featured i3-gaps Arch Linux desktop, which I use as my main machine.\n\n-Luke&Vegar" 10 60 
 dialog --no-cancel --inputbox "First, please enter a name for the user account." 10 60 2> /tmp/.name
 
 dialog --no-cancel --passwordbox "Enter a password for that user." 10 60 2> /tmp/.pass1
@@ -148,7 +148,6 @@ pacman --noconfirm --needed -Sy \
 	wireless_tools \
 	network-manager-applet \
 	networkmanager \
-	w3m \
 	offlineimap \
 	msmtp \
 	notmuch \
@@ -175,8 +174,6 @@ pacman --noconfirm --needed -Sy \
 	mpd \
 	mpc \
 	ncmpcpp \
-	youtube-dl \
-	youtube-viewer \
 	mediainfo \
 	mpv || (red Error installing audio packages. Check your internet connection and pacman keyring.)
 
@@ -314,14 +311,14 @@ cat << "EOF"
                  ||    ||     
 EOF
 
-curl https://raw.githubusercontent.com/LukeSmithxyz/larbs/master/src/sudoers_tmp > /etc/sudoers 
+curl https://raw.githubusercontent.com/vegarab/varbs/master/src/sudoers_tmp > /etc/sudoers 
 
 cd /tmp
 blue Changing working directory to /tmp/...
-blue Downloading next portion of the script \(larbs_user.sh\)...
-curl https://raw.githubusercontent.com/LukeSmithxyz/larbs/master/src/larbs_user.sh > /tmp/larbs_user.sh && blue Running larbs_user.sh script as $NAME...
-sudo -u $NAME bash /tmp/larbs_user.sh || red Error when running larbs_user.sh...
-rm -f /tmp/larbs_user.sh
+blue Downloading next portion of the script \(varbs_user.sh\)...
+curl https://raw.githubusercontent.com/vegarab/varbs/master/src/varbs_user.sh > /tmp/varbs_user.sh && blue Running varbs_user.sh script as $NAME...
+sudo -u $NAME bash /tmp/varbs_user.sh || red Error when running varbs_user.sh...
+rm -f /tmp/varbs_user.sh
 
 #Prints gay "ALMOST THERE!"
 cat << "EOF"
@@ -342,7 +339,8 @@ rmmod pcspkr
 echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
 blue Implementing temporary sudoers file...
-curl https://raw.githubusercontent.com/LukeSmithxyz/larbs/master/src/sudoers > /etc/sudoers 
+curl https://raw.githubusercontent.com/vegarab/varbs/master/src/sudoers > /etc/sudoers 
 
-dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden errors, the script completed successfully and all the programs and configuration files should be in place.\n\nTo run the new graphical environment, log out and log back in as your new user, then run the command \"startx\" to start the graphical environment.\n\n-Luke" 12 80
-clear
+dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden
+errors, the script completed successfully and all the programs and configuration files should be in place.\n\nTo run the new graphical environment, log out and log back in as your new user, then run the command
+\"startx\" to start the graphical environment.\n\n-Luke&Vegar" 12 80 clear

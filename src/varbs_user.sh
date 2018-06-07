@@ -1,7 +1,7 @@
 #!/bin/bash
 
-blue() { printf "\n\033[0;34m $* \033[0m\n\n" && (echo $* >> /tmp/LARBS.log) ;}
-red() { printf "\n\033[0;31m $* \033[0m\n\n" && (echo ERROR: $* >> /tmp/LARBS.log) ;}
+blue() { printf "\n\033[0;34m $* \033[0m\n\n" && (echo $* >> /tmp/VARBS.log) ;}
+red() { printf "\n\033[0;31m $* \033[0m\n\n" && (echo ERROR: $* >> /tmp/VARBS.log) ;}
 
 NAME=$(whoami)
 
@@ -57,10 +57,9 @@ choices=$(cat /tmp/.choices)
 for choice in $choices
 do
     case $choice in
-        1)
+    1)
 		aurcheck vim-live-latex-preview
-		git clone https://github.com/lukesmithxyz/latex-templates.git && mkdir -p /home/$NAME/Documents/LaTeX && rsync -va latex-templates /home/$NAME/Documents/LaTeX && rm -rf latex-templates
-        	;;
+      	;;
 	6)
 		aurcheck ttf-ancient-fonts
 		;;
@@ -113,7 +112,7 @@ do
 done
 
 blue Downloading config files...
-git clone https://github.com/lukesmithxyz/voidrice.git && rsync -va voidrice/ /home/$NAME && rm -rf voidrice
+git clone https://github.com/vegarab/dotfiles.git && rsync -va dotfiles/ /home/$NAME && rm -rf dotfiles
 
 blue Generating bash/ranger/qutebrowser shortcuts...
 cd /home/$NAME/
