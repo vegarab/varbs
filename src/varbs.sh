@@ -134,7 +134,7 @@ blue \[2\/6\] Now installing main programs \(productivity\)...
 pacman --noconfirm --needed -Sy \
 	calcurse \
 	ranger \
-	vim \
+	gvim \
 	tmux \
 	rofi \
 	poppler \
@@ -153,6 +153,8 @@ pacman --noconfirm --needed -Sy \
 	notmuch \
 	notmuch-mutt \
 	rsync \
+	bluez \
+	blueman \
 	newsboat || (red Error installing network packages. Check your internet connection and pacman keyring.)
 
 
