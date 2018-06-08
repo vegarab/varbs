@@ -185,6 +185,7 @@ blue \[6\/6\] Now installing main programs \(devel\)...
 pacman --noconfirm --needed -Sy \
 	python-dbus \
 	python-gobject \
+	python-setuptools \
 	discount \
 	git \
 	r \
