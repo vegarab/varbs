@@ -47,7 +47,7 @@ EOF
 
 gpg --recv-keys 5FAF0A6EE7371805 #Add the needed gpg key for neomutt
 
-aurcheck packer i3-gaps vim-pathogen tamzen-font-git neomutt unclutter-xfixes-git urxvt-resize-font-git polybar python-pywal xfce-theme-blackbird fzf-git || red Error with basic AUR installations...
+aurcheck packer i3-gaps vim-pathogen tamzen-font-git neomutt unclutter-xfixes-git urxvt-resize-font-git polybar python-pywal xfce-theme-blackbird fzf-git arc-gtk-theme || red Error with basic AUR installations...
 #Also installing i3lock, since i3-gaps was only just now installed.
 sudo pacman -S --noconfirm --needed i3lock
 
@@ -112,7 +112,19 @@ do
 done
 
 blue Downloading config files...
-git clone https://github.com/vegarab/dotfiles.git && rsync -va dotfiles/ /home/$NAME && rm -rf dotfiles
+cd /home/$NAME/
+git clone https://github.com/vegarab/dotfiles.git dotfiles
+sudo rm -r .config .vimrc .vim .bashrc .xinitrc .Xresources .Xmodmap .gtkrc-2.0 .Xdefaults
+sudo ln -s /home/$NAME/.config /home/$NAME/dotfiles/.config
+sudo ln -s /home/$NAME/.vimrc /home/$NAME/dotfiles/.vimrc
+sudo ln -s /home/$NAME/.vim /home/$NAME/dotfiles/.vim
+sudo ln -s /home/$NAME/.bashrc /home/$NAME/dotfiles/.bashrc
+sudo ln -s /home/$NAME/.bash_aliases /home/$NAME/dotfiles/.bash_aliases
+sudo ln -s /home/$NAME/.xinitrc /home/$NAME/dotfiles/.xinitrc
+sudo ln -s /home/$NAME/.Xmodmap /home/$NAME/dotfiles/.Xmodmap
+sudo ln -s /home/$NAME/.Xdefaults /home/$NAME/dotfiles/.Xdefaults
+sudo ln -s /home/$NAME/.gtkrc-2.0 /home/$NAME/dotfiles/.gtkrc-2.0
+
 
 blue Generating bash/ranger/qutebrowser shortcuts...
 cd /home/$NAME/

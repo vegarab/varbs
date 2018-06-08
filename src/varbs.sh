@@ -154,6 +154,7 @@ pacman --noconfirm --needed -Sy \
 	notmuch-mutt \
 	rsync \
 	bluez \
+	w3m \
 	blueman \
 	newsboat || (red Error installing network packages. Check your internet connection and pacman keyring.)
 
