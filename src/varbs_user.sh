@@ -118,7 +118,7 @@ sudo rm -r .config .vimrc .vim .bashrc .xinitrc .Xresources .Xmodmap .gtkrc-2.0 
 sudo ln -s /home/$NAME/dotfiles/.config /home/$NAME/.config
 sudo ln -s /home/$NAME/dotfiles/.vimrc /home/$NAME/.vimrc
 sudo ln -s /home/$NAME/dotfiles/.vim /home/$NAME/.vim
-sudo ln -s /home/$NAME/dotfiles/.bashrc /home/$NAME/.basrc
+sudo ln -s /home/$NAME/dotfiles/.bashrc /home/$NAME/.bashrc
 sudo ln -s /home/$NAME/dotfiles/.bash_aliases /home/$NAME/.bash_aliases 
 sudo ln -s /home/$NAME/dotfiles/.xinitrc /home/$NAME/.xinitrc 
 sudo ln -s /home/$NAME/dotfiles/.Xmodmap /home/$NAME/.Xmodmap 
