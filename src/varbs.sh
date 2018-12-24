@@ -347,4 +347,5 @@ curl https://raw.githubusercontent.com/vegarab/varbs/master/src/sudoers > /etc/s
 
 dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden
 errors, the script completed successfully and all the programs and configuration files should be in place.\n\nTo run the new graphical environment, log out and log back in as your new user, then run the command
-\"startx\" to start the graphical environment.\n\n-Luke&Vegar" 12 80 clear
+\"startx\" to start the graphical environment.\n\n-Luke&Vegar" 12 80
+clear
