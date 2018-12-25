@@ -352,14 +352,12 @@ wget https://raw.githubusercontent.com/vegarab/varbs/master/src/updates/packer.s
 sudo -u $NAME bash packer.sh
 
 blue pywal three point one fix... 
-wget https://raw.githubusercontent.com/vegarab/vars/master/src/updates/pywal-fix.sh
+wget https://raw.githubusercontent.com/vegarab/varbs/master/src/updates/pywal-fix.sh
 sudo -u $NAME bash pywal-fix.sh
 
 blue installing conda and setting up python env
-wget https://raw.githubusercontent.com/vegarab/vars/master/src/updates/conda.sh
+wget https://raw.githubusercontent.com/vegarab/varbs/master/src/updates/conda.sh
 sudo -u $NAME bash conda.sh
 
-dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden
-errors, the script completed successfully and all the programs and configuration files should be in place.\n\nTo run the new graphical environment, log out and log back in as your new user, then run the command
-\"startx\" to start the graphical environment.\n\n-Luke&Vegar" 12 80
+dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden errors, the script completed successfully and all the programs and configuration files should be in place.\n\nTo run the new graphical environment, log out and log back in as your new user, then run the command \"startx\" to start the graphical environment.\n\n-Luke&Vegar" 12 80
 clear
