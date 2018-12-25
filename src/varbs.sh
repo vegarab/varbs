@@ -346,10 +346,12 @@ blue Implementing temporary sudoers file...
 curl https://raw.githubusercontent.com/vegarab/varbs/master/src/sudoers > /etc/sudoers 
 
 blue Adding updates and minor fixes...
-blue pywal 3.10 fix
 
+blue Installing new packer... 
+sudo -u $NAME bash packer.sh
+
+blue pywal three point one fix... 
 sudo -u $NAME bash pywal-fix.sh
-
 
 dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden
 errors, the script completed successfully and all the programs and configuration files should be in place.\n\nTo run the new graphical environment, log out and log back in as your new user, then run the command
