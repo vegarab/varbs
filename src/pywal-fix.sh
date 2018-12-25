@@ -4,7 +4,7 @@ sudo pacman -Sy python-pip --noconfirm
 sudo pip install pywal==3.1.0
 
 NAME=$(whoami)
-firefox -CreateProfile 
+firefox -CreateProfile $NAME
 
 if [ ! -f "/home/$NAME/dotfiles/userChrome.css" ]; then
 	cd /home/$NAME/dotfiles/
