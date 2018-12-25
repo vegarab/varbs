@@ -21,3 +21,4 @@ P1=$(pwd)
 sudo ln -s /home/$NAME/dotfiles/userChrome.css $P1/chrome/userChrome.css
 
 packer -S oomox --noconfirm
+kill firefox
