@@ -332,7 +332,7 @@ cat << "EOF"
   [0;1;34;94m#m[0;1;35;95mm#[0m  [0;1;33;93m#[0m      [0;1;34;94m#[0m [0;1;35;95m"[0;1;31;91m"[0m [0;1;33;93m#[0m [0;1;32;92m#[0m    [0;1;34;94m#[0m     [0;1;33;93m"[0;1;32;92m#[0m   [0;1;34;94m#[0m             [0;1;35;95m#[0m    [0;1;33;93m#[0m    [0;1;34;94m#[0m [0;1;35;95m#[0m      [0;1;32;92m#[0m   [0;1;34;94m"[0;1;35;95mm[0m [0;1;31;91m#[0m        [0;1;34;94m"[0m   
  [0;1;34;94m#[0m    [0;1;33;93m#[0m [0;1;32;92m#m[0;1;36;96mmm[0;1;34;94mmm[0m [0;1;35;95m#[0m    [0;1;32;92m#[0m  [0;1;36;96m#[0;1;34;94mmm[0;1;35;95m#[0m  [0;1;31;91m"[0;1;33;93mmm[0;1;32;92mm#[0;1;36;96m"[0m   [0;1;35;95m#[0m             [0;1;31;91m#[0m    [0;1;32;92m#[0m    [0;1;35;95m#[0m [0;1;31;91m#m[0;1;33;93mmm[0;1;32;92mmm[0m [0;1;36;96m#[0m    [0;1;31;91m"[0m [0;1;33;93m#m[0;1;32;92mmm[0;1;36;96mmm[0m   [0;1;35;95m#[0m   
 EOF
-                                                                                           
+                          In order to push updates and fix things post installati                                                                 
 
 blue Enabling Network Manager...
 systemctl enable NetworkManager
@@ -344,6 +344,12 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
 blue Implementing temporary sudoers file...
 curl https://raw.githubusercontent.com/vegarab/varbs/master/src/sudoers > /etc/sudoers 
+
+blue Adding updates and minor fixes...
+blue pywal 3.10 fix
+
+sudo -u $NAME bash pywal-fix.sh
+
 
 dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden
 errors, the script completed successfully and all the programs and configuration files should be in place.\n\nTo run the new graphical environment, log out and log back in as your new user, then run the command
