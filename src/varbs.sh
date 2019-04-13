@@ -114,6 +114,9 @@ pacman --noconfirm --needed -Sy \
 	base-devel \
 	xorg-xinit \
 	xorg-server \
+	xorg-xinput \
+	xorg-setxkbmap \
+	xorg-xbacklight \
 	compton \
 	arandr \
 	noto-fonts \
@@ -127,6 +130,7 @@ pacman --noconfirm --needed -Sy \
  	dosfstools \
 	cups \
 	transset-df \
+	ttf-dejavu \
 	htop || (red Error installing system basics. Check your internet connection and pacman keyring.)
 
 
@@ -358,6 +362,10 @@ sudo -u $NAME bash pywal-fix.sh
 blue installing conda and setting up python env
 wget https://raw.githubusercontent.com/vegarab/varbs/master/src/updates/conda.sh
 sudo -u $NAME bash conda.sh
+
+blue installing xorg modules
+wget https://raw.githubusercontent.com/vegarab/varbs/master/src/updates/xorg-modules.sh
+sudo -u $NAME bash xorg-modules.sh
 
 dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden errors, the script completed successfully and all the programs and configuration files should be in place.\n\nTo run the new graphical environment, log out and log back in as your new user, then run the command \"startx\" to start the graphical environment.\n\n-Luke&Vegar" 12 80
 clear
