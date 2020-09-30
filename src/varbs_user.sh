@@ -102,6 +102,19 @@ do
 	esac
 done
 
+mkdir -p /home/$NAME/.local/src
+cd /home/$NAME/.local/src
+git clone https://github.com/vegarab/dwm.git dwm
+git clone https://github.com/vegarab/st.git st
+git clone https://github.com/vegarab/dwmblocks.git dwmblocks
+
+cd /home/$NAME/.local/src/dwm
+sudo make install
+cd /home/$NAME/.local/src/st
+sudo make install
+cd /home/$NAME/.local/src/dwmblocks
+sudo make install
+
 blue Downloading config files...
 cd /home/$NAME/
 git clone https://github.com/vegarab/dotfiles.git dotfiles
@@ -115,24 +128,15 @@ sudo ln -s /home/$NAME/dotfiles/.xinitrc /home/$NAME/.xinitrc
 sudo ln -s /home/$NAME/dotfiles/.Xmodmap /home/$NAME/.Xmodmap 
 sudo ln -s /home/$NAME/dotfiles/.Xdefaults /home/$NAME/.Xdefaults 
 sudo ln -s /home/$NAME/dotfiles/.gtkrc-2.0 /home/$NAME/.gtkrc-2.0
+sudo ln -s /home/$NAME/dotfiles/.xprofile /home/$NAME/.xprofile
+sudo ln -s /home/$NAME/dotfiles/.local/bin /home/$NAME/.local/bin
 
 mkdir /home/$NAME/docs
 mkdir /home/$NAME/dev
 mkdir /home/$NAME/pics
 mkdir /home/$NAME/dl
 
-mkdir -p /home/$NAME/.local/src
-cd /home/$NAME/.local/src
-git clone https://github.com/vegarab/dwm.git dwm
-git clone https://github.com/vegarab/st.git st
-git clone https://github.com/vegarab/dwmblocks.git dwmblocks
 
-cd /home/$NAME/.local/src/dwm
-sudo make install
-cd /home/$NAME/.local/src/st
-sudo make install
-cd /home/$NAME/.local/src/dwmblocks
-sudo make install
 
 blue Generating bash/ranger/qutebrowser shortcuts...
 cd /home/$NAME/
