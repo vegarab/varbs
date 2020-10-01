@@ -118,6 +118,7 @@ sudo make install
 blue Downloading config files...
 cd /home/$NAME/
 git clone https://github.com/vegarab/dotfiles.git dotfiles
+git checkout dev
 sudo rm -r .config .vimrc .vim .bashrc .xinitrc .Xresources .Xmodmap .gtkrc-2.0 .Xdefaults
 sudo ln -s /home/$NAME/dotfiles/.config /home/$NAME/.config
 sudo ln -s /home/$NAME/dotfiles/.vimrc /home/$NAME/.vimrc

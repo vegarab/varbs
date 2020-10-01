@@ -108,8 +108,8 @@ pacman --noconfirm --needed -Sy \
 	xf86-video-intel \
  	dosfstools \
 	cups \
-	transset-df \
 	ttf-dejavu \
+	dmenu \
 	htop || (red Error installing system basics. Check your internet connection and pacman keyring.)
 
 
@@ -147,6 +147,7 @@ pacman --noconfirm --needed -Sy \
 	feh \
 	imagemagick \
 	scrot \
+	xwallpaper \
 	libcaca || (red Error installing graphic packages. Check your internet connection and pacman keyring.)
 
 
