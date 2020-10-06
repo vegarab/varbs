@@ -110,6 +110,7 @@ pacman --noconfirm --needed -Sy \
 	cups \
 	ttf-dejavu \
 	dmenu \
+	slock \
 	htop || (red Error installing system basics. Check your internet connection and pacman keyring.)
 
 
@@ -118,11 +119,16 @@ pacman --noconfirm --needed -Sy \
 	calcurse \
 	ranger \
 	gvim \
+	neovim \
+	nodejs \
 	tmux \
 	rofi \
 	poppler \
 	mupdf \
 	evince \
+	xclip \
+	yarn \
+	python-pynvim \
 	pandoc || (red Error installing productivity packages. Check your internet connection and pacman keyring.)
 
 
@@ -162,6 +168,7 @@ pacman --noconfirm --needed -Sy \
 	mpc \
 	ncmpcpp \
 	mediainfo \
+	pulseaudio-bluetooth \
 	mpv || (red Error installing audio packages. Check your internet connection and pacman keyring.)
 
 

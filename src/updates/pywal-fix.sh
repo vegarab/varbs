@@ -21,7 +21,7 @@ P1=$(pwd)
 sudo ln -s /home/$NAME/dotfiles/userChrome.css $P1/chrome/userChrome.css
 
 cd chrome
-var="@import url(\"file:///home/$NAME/.cache/wal/colors.css\");"
+var="@import url(\"file:///home/$NAME/.themes/colors.css\");"
 sed -i "1s~.*~$var~g" userChrome.css
 
 packer -S oomox --noconfirm

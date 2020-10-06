@@ -131,6 +131,7 @@ sudo ln -s /home/$NAME/dotfiles/.Xdefaults /home/$NAME/.Xdefaults
 sudo ln -s /home/$NAME/dotfiles/.gtkrc-2.0 /home/$NAME/.gtkrc-2.0
 sudo ln -s /home/$NAME/dotfiles/.xprofile /home/$NAME/.xprofile
 sudo ln -s /home/$NAME/dotfiles/.local/bin /home/$NAME/.local/bin
+sudo ln -s /home/$NAME/dotfiles/.themes /home/$NAME/.themes
 
 mkdir /home/$NAME/docs
 mkdir /home/$NAME/dev
