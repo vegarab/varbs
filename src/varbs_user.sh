@@ -36,20 +36,9 @@ done
 blue Installing AUR programs...
 blue \(This may take some time.\)
 
-cat << "EOF"
-   [0;1;33;93mm[0;1;32;92mm[0m   [0;1;34;94mm[0m    [0;1;31;91mm[0m [0;1;33;93mm[0;1;32;92mmm[0;1;36;96mmm[0m        [0;1;32;92mmm[0;1;36;96mmm[0;1;34;94mmm[0;1;35;95mm[0m [0;1;31;91mmm[0;1;33;93mmm[0;1;32;92mm[0m  [0;1;36;96mm[0m    [0;1;31;91mm[0m [0;1;33;93mmm[0;1;32;92mmm[0;1;36;96mmm[0m   [0;1;35;95mm[0m   
-   [0;1;32;92m#[0;1;36;96m#[0m   [0;1;35;95m#[0m    [0;1;33;93m#[0m [0;1;32;92m#[0m   [0;1;34;94m"[0;1;35;95m#[0m          [0;1;34;94m#[0m      [0;1;32;92m#[0m    [0;1;34;94m#[0;1;35;95m#[0m  [0;1;31;91m#[0;1;33;93m#[0m [0;1;32;92m#[0m        [0;1;31;91m#[0m   
-  [0;1;36;96m#[0m  [0;1;34;94m#[0m  [0;1;31;91m#[0m    [0;1;32;92m#[0m [0;1;36;96m#[0;1;34;94mmm[0;1;35;95mmm[0;1;31;91m"[0m          [0;1;35;95m#[0m      [0;1;36;96m#[0m    [0;1;35;95m#[0m [0;1;31;91m#[0;1;33;93m#[0m [0;1;32;92m#[0m [0;1;36;96m#m[0;1;34;94mmm[0;1;35;95mmm[0m   [0;1;33;93m#[0m   
-  [0;1;34;94m#m[0;1;35;95mm#[0m  [0;1;33;93m#[0m    [0;1;36;96m#[0m [0;1;34;94m#[0m   [0;1;31;91m"[0;1;33;93mm[0m          [0;1;31;91m#[0m      [0;1;34;94m#[0m    [0;1;31;91m#[0m [0;1;33;93m"[0;1;32;92m"[0m [0;1;36;96m#[0m [0;1;34;94m#[0m        [0;1;32;92m"[0m   
- [0;1;34;94m#[0m    [0;1;33;93m#[0m [0;1;32;92m"m[0;1;36;96mmm[0;1;34;94mm"[0m [0;1;35;95m#[0m    [0;1;32;92m"[0m          [0;1;33;93m#[0m    [0;1;34;94mmm[0;1;35;95m#m[0;1;31;91mm[0m  [0;1;33;93m#[0m    [0;1;34;94m#[0m [0;1;35;95m#m[0;1;31;91mmm[0;1;33;93mmm[0m   [0;1;36;96m#[0m   
-EOF
-                                                               
-
 gpg --recv-keys 5FAF0A6EE7371805 #Add the needed gpg key for neomutt
 
-aurcheck packer i3-gaps vim-pathogen tamzen-font-git neomutt unclutter-xfixes-git urxvt-resize-font-git polybar python-pywal xfce-theme-blackbird fzf-git arc-gtk-theme ttf-monaco || red Error with basic AUR installations...
-#Also installing i3lock, since i3-gaps was only just now installed.
-sudo pacman -S --noconfirm --needed i3lock
+aurcheck packer vim-pathogen tamzen-font-git neomutt unclutter-xfixes-git  xfce-theme-blackbird fzf-git arc-gtk-theme ttf-monaco || red Error with basic AUR installations...
 
 #packer --noconfirm -S ncpamixer-git speedometer cli-visualizer
 
@@ -111,6 +100,19 @@ do
 	esac
 done
 
+mkdir -p /home/$NAME/.local/src
+cd /home/$NAME/.local/src
+git clone https://github.com/vegarab/dwm.git dwm
+git clone https://github.com/vegarab/st.git st
+git clone https://github.com/vegarab/dwmblocks.git dwmblocks
+
+cd /home/$NAME/.local/src/dwm
+sudo make install
+cd /home/$NAME/.local/src/st
+sudo make install
+cd /home/$NAME/.local/src/dwmblocks
+sudo make install
+
 blue Downloading config files...
 cd /home/$NAME/
 git clone https://github.com/vegarab/dotfiles.git dotfiles
@@ -124,6 +126,9 @@ sudo ln -s /home/$NAME/dotfiles/.xinitrc /home/$NAME/.xinitrc
 sudo ln -s /home/$NAME/dotfiles/.Xmodmap /home/$NAME/.Xmodmap 
 sudo ln -s /home/$NAME/dotfiles/.Xdefaults /home/$NAME/.Xdefaults 
 sudo ln -s /home/$NAME/dotfiles/.gtkrc-2.0 /home/$NAME/.gtkrc-2.0
+sudo ln -s /home/$NAME/dotfiles/.xprofile /home/$NAME/.xprofile
+sudo ln -s /home/$NAME/dotfiles/.local/bin /home/$NAME/.local/bin
+sudo ln -s /home/$NAME/dotfiles/.themes /home/$NAME/.themes
 
 mkdir /home/$NAME/docs
 mkdir /home/$NAME/dev

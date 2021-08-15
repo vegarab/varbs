@@ -87,26 +87,6 @@ cat << "EOF"
                      
 EOF
 sleep .5
-cat << "EOF"
-			
-
-                      -     =    .--._
-                - - ~_=  =~_- = - `.  `-.
-              ==~_ = =_  ~ -   =  .-'    `.
-            --=~_ - ~  == - =   .'      _..:._
-           ---=~ _~  = =-  =   `.  .--.'      `.
-          --=_-=- ~= _ - =  -  _.'  `.      .--.:
-            -=_~ -- = =  ~-  .'      :     :    :
-             -=-_ ~=  = - _-`--.     :  .--:    D
-               -=~ _=  =  -~_=  `;  .'.:   ,`---'@
-             --=_= = ~-   -=   .'  .'  `._ `-.__.'
-            --== ~_ - =  =-  .'  .'     _.`---'
-           --=~_= = - = ~  .'--''   .   `-..__.--.
-          jgs--==~ _= - ~-=  =-~_-   `-..___(  ===;
-          --==~_==- =__ ~-=  - -    .'       `---'
-
-EOF
-sleep .5
 
 
 blue \[1\/6\] Now installing main programs \(system basics\)...
@@ -120,7 +100,6 @@ pacman --noconfirm --needed -Sy \
 	compton \
 	arandr \
 	noto-fonts \
-	rxvt-unicode \
 	unzip \
 	unrar \
 	wget \
@@ -129,8 +108,16 @@ pacman --noconfirm --needed -Sy \
 	xf86-video-intel \
  	dosfstools \
 	cups \
-	transset-df \
 	ttf-dejavu \
+	dmenu \
+	slock \
+	xclip \
+	dunst \
+	ttf-cascadia-code \
+	xorg-xinput \
+	xorg-setxkbmap \
+	xorg-xbacklight \
+	ttf-dejavu
 	htop || (red Error installing system basics. Check your internet connection and pacman keyring.)
 
 
@@ -139,11 +126,15 @@ pacman --noconfirm --needed -Sy \
 	calcurse \
 	ranger \
 	gvim \
+	neovim \
+	nodejs \
 	tmux \
 	rofi \
 	poppler \
 	mupdf \
 	evince \
+	yarn \
+	python-pynvim \
 	pandoc || (red Error installing productivity packages. Check your internet connection and pacman keyring.)
 
 
@@ -168,6 +159,7 @@ pacman --noconfirm --needed -Sy \
 	feh \
 	imagemagick \
 	scrot \
+	xwallpaper \
 	libcaca || (red Error installing graphic packages. Check your internet connection and pacman keyring.)
 
 
@@ -182,6 +174,7 @@ pacman --noconfirm --needed -Sy \
 	mpc \
 	ncmpcpp \
 	mediainfo \
+	pulseaudio-bluetooth \
 	mpv || (red Error installing audio packages. Check your internet connection and pacman keyring.)
 
 
@@ -198,51 +191,11 @@ pacman --noconfirm --needed -Sy \
 
 pacman --noconfirm --needed -S fzf || (red Error with peripheral programs.)
 
-cat << "EOF"
- _____________________________ 
-< Drink whole milk every day! >
- ----------------------------- 
- \     ____________ 
-  \    |__________|
-      /           /\
-     /           /  \
-    /___________/___/|
-    |          |     |
-    |  ==\ /== |     |
-    |   O   O  | \ \ |
-    |     <    |  \ \|
-   /|          |   \ \
-  / |  \_____/ |   / /
- / /|          |  / /|
-/||\|          | /||\/
-    -------------|   
-        | |    | | 
-       <__/    \__>
-EOF
-
 for choice in $choices
 do
     case $choice in
         1)
 	    blue Now installing LaTeX packages...
-
-cat << "EOF"
-                                                                                                                                     
- [0;1;34;94mmmmmm[0m                  [0;37mm[0m           [0;37m""#[0m    [0;1;30;90m""#[0m      [0;1;30;90m"[0m                         [0;34mm[0m            [0;37mmmmmmmm[0m        [0;1;30;90mm[0m    [0;1;30;90mm[0m                     
-   [0;34m#[0m    [0;34mm[0m [0;34mmm[0m    [0;37mmmm[0m   [0;37mmm#mm[0m   [0;37mmm[0;1;30;90mm[0m     [0;1;30;90m#[0m      [0;1;30;90m#[0m    [0;1;34;94mmmm[0m    [0;1;34;94mm[0m [0;1;34;94mmm[0m    [0;34mmmmm[0m         [0;34m#[0m       [0;37mmmm[0m     [0;37m#[0m     [0;1;30;90mmmm[0m    [0;1;30;90m#[0m  [0;1;30;90m#[0m                      
-   [0;34m#[0m    [0;37m#"[0m  [0;37m#[0m  [0;37m#[0m   [0;37m"[0m    [0;1;30;90m#[0m    [0;1;30;90m"[0m   [0;1;30;90m#[0m    [0;1;30;90m#[0m      [0;1;34;94m#[0m      [0;1;34;94m#[0m    [0;34m#"[0m  [0;34m#[0m  [0;34m#"[0m [0;34m"#[0m         [0;37m#[0m      [0;37m"[0m   [0;1;30;90m#[0m    [0;1;30;90m#[0m    [0;1;30;90m#"[0m  [0;1;30;90m#[0m    [0;1;34;94m##[0m                       
-   [0;37m#[0m    [0;37m#[0m   [0;37m#[0m   [0;1;30;90m"""m[0m    [0;1;30;90m#[0m    [0;1;30;90mm""[0;1;34;94m"#[0m    [0;1;34;94m#[0m      [0;1;34;94m#[0m      [0;34m#[0m    [0;34m#[0m   [0;34m#[0m  [0;37m#[0m   [0;37m#[0m         [0;37m#[0m      [0;1;30;90mm"""#[0m    [0;1;30;90m#[0m    [0;1;34;94m#""""[0m   [0;1;34;94mm""m[0m                      
- [0;37mmm#mm[0m  [0;1;30;90m#[0m   [0;1;30;90m#[0m  [0;1;30;90m"mmm"[0m    [0;1;34;94m"mm[0m  [0;1;34;94m"mm"#[0m    [0;1;34;94m"m[0;34mm[0m    [0;34m"mm[0m  [0;34mmm#mm[0m  [0;37m#[0m   [0;37m#[0m  [0;37m"#m"#[0m         [0;1;30;90m#mmmmm[0m [0;1;30;90m"mm[0;1;34;94m"#[0m    [0;1;34;94m#[0m    [0;1;34;94m"#mm"[0m  [0;34mm"[0m  [0;34m"m[0m   [0;34m#[0m      [0;37m#[0m      [0;37m#[0m   
-                                                                 [0;1;30;90mm[0m  [0;1;30;90m#[0m                                                                
-                                                                  [0;1;30;90m""[0m                                                                 
-                                                                                                         
-                          [0;37m#[0m                       [0;1;30;90m#[0m                    [0;1;34;94mm[0;34mmmmm[0m [0;34mmmmmmmm[0m [0;34mmmm[0;37mmmm[0m  [0;37mmmmm[0m    [0;37mm[0m   
-[0;34mm[0m     [0;34mm[0m  [0;34mmmm[0m    [0;37mm[0m [0;37mmm[0m   [0;37mmmm#[0m   [0;37mmm[0;1;30;90mm[0m   [0;1;30;90mm[0m   [0;1;30;90mm[0m   [0;1;30;90mmmm[0m   [0;1;34;94m#[0m   [0;1;34;94mm[0m   [0;1;34;94mmmm[0m          [0;34m#[0m    [0;34m#[0m   [0;37m#[0m    [0;37m#[0m      [0;37mm"[0m  [0;1;30;90m"m[0m   [0;1;30;90m#[0m   
-[0;34m"m[0m [0;34mm[0m [0;34mm"[0m [0;37m#"[0m [0;37m"#[0m   [0;37m#"[0m  [0;37m"[0m [0;37m#"[0m [0;1;30;90m"#[0m  [0;1;30;90m#"[0m  [0;1;30;90m"[0m  [0;1;30;90m#[0m   [0;1;34;94m#[0m  [0;1;34;94m#"[0m  [0;1;34;94m"[0m  [0;1;34;94m#[0m [0;1;34;94mm"[0m   [0;34m#[0m   [0;34m"[0m         [0;34m#[0;37mmmmm"[0m   [0;37m#[0m    [0;37m#mm[0;1;30;90mmmm[0m [0;1;30;90m#[0m    [0;1;30;90m#[0m   [0;1;30;90m#[0m   
- [0;37m#m#m#[0m  [0;37m#[0m   [0;37m#[0m   [0;1;30;90m#[0m     [0;1;30;90m#[0m   [0;1;30;90m#[0m  [0;1;30;90m#[0m      [0;1;34;94m#[0m   [0;1;34;94m#[0m  [0;1;34;94m#[0m      [0;34m#"#[0m     [0;34m"""m[0m         [0;37m#[0m    [0;37m#[0m   [0;1;30;90m#[0m    [0;1;30;90m#[0m      [0;1;30;90m#[0m    [0;1;34;94m#[0m   [0;1;34;94m"[0m   
-  [0;37m#[0m [0;37m#[0m   [0;1;30;90m"#m#"[0m   [0;1;30;90m#[0m     [0;1;30;90m"#[0;1;34;94mm##[0m  [0;1;34;94m"#mm"[0m  [0;1;34;94m"mm"[0;34m#[0m  [0;34m"#mm"[0m  [0;34m#[0m  [0;34m"m[0m  [0;37m"mmm"[0m         [0;37m#[0;1;30;90mmmmm"[0m   [0;1;30;90m#[0m    [0;1;30;90m#[0m       [0;1;34;94m#mm#[0m    [0;1;34;94m#[0m   
-                                                                                                         
-EOF
 	    pacman --noconfirm --needed -S texlive-most texlive-lang biber
             ;;
         2)
@@ -275,19 +228,6 @@ EOF
 		;;
     esac
 done
-
-#Prints gay [autism intensifies]
-cat << "EOF"
-
-                                                                                                                                            
-   [0;1;33;93m#[0;1;32;92m"[0m                   [0;1;31;91mm[0m      [0;1;36;96m"[0m                           [0;1;35;95m"[0m             [0;1;31;91mm[0m                           [0;1;32;92m"[0m      [0;1;31;91mm"[0;1;33;93m"[0m    [0;1;36;96m"[0m                   [0;1;33;93m"[0;1;32;92m#[0m   
-   [0;1;32;92m#[0m     [0;1;35;95mm[0;1;31;91mmm[0m   [0;1;32;92mm[0m   [0;1;34;94mm[0m  [0;1;31;91mmm[0;1;33;93m#m[0;1;32;92mm[0m  [0;1;36;96mm[0;1;34;94mmm[0m     [0;1;33;93mm[0;1;32;92mmm[0m   [0;1;34;94mm[0;1;35;95mmm[0;1;31;91mmm[0m         [0;1;35;95mm[0;1;31;91mmm[0m    [0;1;36;96mm[0m [0;1;34;94mmm[0m   [0;1;31;91mm[0;1;33;93mm#[0;1;32;92mmm[0m   [0;1;34;94mm[0;1;35;95mmm[0m   [0;1;33;93mm[0m [0;1;32;92mm[0;1;36;96mm[0m    [0;1;35;95mm[0;1;31;91mmm[0m   [0;1;32;92mm[0;1;36;96mmm[0m    [0;1;31;91mmm[0;1;33;93m#m[0;1;32;92mm[0m  [0;1;36;96mm[0;1;34;94mmm[0m     [0;1;33;93mm[0;1;32;92mmm[0m    [0;1;35;95mmm[0;1;31;91mm[0m     [0;1;36;96m#[0m   
-   [0;1;36;96m#[0m    [0;1;31;91m"[0m   [0;1;32;92m#[0m  [0;1;36;96m#[0m   [0;1;35;95m#[0m    [0;1;32;92m#[0m      [0;1;35;95m#[0m    [0;1;32;92m#[0m   [0;1;34;94m"[0m  [0;1;35;95m#[0m [0;1;31;91m#[0m [0;1;33;93m#[0m           [0;1;33;93m#[0m    [0;1;34;94m#"[0m  [0;1;31;91m#[0m    [0;1;32;92m#[0m    [0;1;35;95m#"[0m  [0;1;33;93m#[0m  [0;1;32;92m#[0;1;36;96m"[0m  [0;1;34;94m#[0m  [0;1;31;91m#[0m   [0;1;32;92m"[0m    [0;1;34;94m#[0m      [0;1;32;92m#[0m      [0;1;35;95m#[0m    [0;1;32;92m#"[0m  [0;1;34;94m#[0m  [0;1;35;95m#[0m   [0;1;33;93m"[0m    [0;1;34;94m#[0m   
-   [0;1;34;94m#[0m    [0;1;33;93mm"[0;1;32;92m""[0;1;36;96m#[0m  [0;1;34;94m#[0m   [0;1;31;91m#[0m    [0;1;36;96m#[0m      [0;1;31;91m#[0m     [0;1;36;96m"[0;1;34;94m""[0;1;35;95mm[0m  [0;1;31;91m#[0m [0;1;33;93m#[0m [0;1;32;92m#[0m           [0;1;32;92m#[0m    [0;1;35;95m#[0m   [0;1;33;93m#[0m    [0;1;36;96m#[0m    [0;1;31;91m#"[0;1;33;93m""[0;1;32;92m"[0m  [0;1;36;96m#[0m   [0;1;35;95m#[0m   [0;1;33;93m"[0;1;32;92m""[0;1;36;96mm[0m    [0;1;35;95m#[0m      [0;1;36;96m#[0m      [0;1;31;91m#[0m    [0;1;36;96m#"[0;1;34;94m""[0;1;35;95m"[0m   [0;1;33;93m""[0;1;32;92m"m[0m    [0;1;35;95m#[0m   
-   [0;1;35;95m#[0m    [0;1;32;92m"m[0;1;36;96mm"[0;1;34;94m#[0m  [0;1;35;95m"[0;1;31;91mmm[0;1;33;93m"#[0m    [0;1;34;94m"m[0;1;35;95mm[0m  [0;1;31;91mm[0;1;33;93mm#[0;1;32;92mmm[0m  [0;1;34;94m"m[0;1;35;95mmm[0;1;31;91m"[0m  [0;1;33;93m#[0m [0;1;32;92m#[0m [0;1;36;96m#[0m         [0;1;32;92mm[0;1;36;96mm#[0;1;34;94mmm[0m  [0;1;31;91m#[0m   [0;1;32;92m#[0m    [0;1;34;94m"[0;1;35;95mmm[0m  [0;1;33;93m"#[0;1;32;92mmm[0;1;36;96m"[0m  [0;1;34;94m#[0m   [0;1;31;91m#[0m  [0;1;32;92m"m[0;1;36;96mmm[0;1;34;94m"[0m  [0;1;35;95mm[0;1;31;91mm#[0;1;33;93mmm[0m    [0;1;34;94m#[0m    [0;1;31;91mm[0;1;33;93mm#[0;1;32;92mmm[0m  [0;1;34;94m"#[0;1;35;95mmm[0;1;31;91m"[0m  [0;1;33;93m"[0;1;32;92mmm[0;1;36;96mm"[0m    [0;1;31;91m#[0m   
-   [0;1;31;91m"[0;1;33;93m"[0m                                                                                                                                  [0;1;31;91m"[0;1;33;93m"[0m   
-                                                                                                                                            
-EOF
 
 for choice in $browch
 do
@@ -328,21 +268,12 @@ curl https://raw.githubusercontent.com/vegarab/varbs/master/src/varbs_user.sh > 
 sudo -u $NAME bash /tmp/varbs_user.sh || red Error when running varbs_user.sh...
 rm -f /tmp/varbs_user.sh
 
-#Prints gay "ALMOST THERE!"
-cat << "EOF"
-   [0;1;33;93mm[0;1;32;92mm[0m   [0;1;34;94mm[0m      [0;1;33;93mm[0m    [0;1;34;94mm[0m  [0;1;35;95mm[0;1;31;91mmm[0;1;33;93mm[0m   [0;1;36;96mmm[0;1;34;94mmm[0m [0;1;35;95mm[0;1;31;91mmm[0;1;33;93mmm[0;1;32;92mmm[0m       [0;1;31;91mm[0;1;33;93mmm[0;1;32;92mmm[0;1;36;96mmm[0m [0;1;34;94mm[0m    [0;1;33;93mm[0m [0;1;32;92mmm[0;1;36;96mmm[0;1;34;94mmm[0m [0;1;35;95mm[0;1;31;91mmm[0;1;33;93mmm[0m  [0;1;36;96mmm[0;1;34;94mmm[0;1;35;95mmm[0m   [0;1;33;93mm[0m   
-   [0;1;32;92m#[0;1;36;96m#[0m   [0;1;35;95m#[0m      [0;1;32;92m#[0;1;36;96m#[0m  [0;1;34;94m#[0;1;35;95m#[0m [0;1;31;91mm"[0m  [0;1;32;92m"m[0m [0;1;36;96m#[0;1;34;94m"[0m   [0;1;31;91m"[0m   [0;1;32;92m#[0m             [0;1;36;96m#[0m    [0;1;35;95m#[0m    [0;1;32;92m#[0m [0;1;36;96m#[0m      [0;1;31;91m#[0m   [0;1;32;92m"[0;1;36;96m#[0m [0;1;34;94m#[0m        [0;1;32;92m#[0m   
-  [0;1;36;96m#[0m  [0;1;34;94m#[0m  [0;1;31;91m#[0m      [0;1;36;96m#[0m [0;1;34;94m#[0;1;35;95m#[0m [0;1;31;91m#[0m [0;1;33;93m#[0m    [0;1;36;96m#[0m [0;1;34;94m"[0;1;35;95m#m[0;1;31;91mmm[0m    [0;1;36;96m#[0m             [0;1;34;94m#[0m    [0;1;31;91m#[0;1;33;93mmm[0;1;32;92mmm[0;1;36;96m#[0m [0;1;34;94m#m[0;1;35;95mmm[0;1;31;91mmm[0m [0;1;33;93m#[0;1;32;92mmm[0;1;36;96mmm[0;1;34;94m"[0m [0;1;35;95m#m[0;1;31;91mmm[0;1;33;93mmm[0m   [0;1;36;96m#[0m   
-  [0;1;34;94m#m[0;1;35;95mm#[0m  [0;1;33;93m#[0m      [0;1;34;94m#[0m [0;1;35;95m"[0;1;31;91m"[0m [0;1;33;93m#[0m [0;1;32;92m#[0m    [0;1;34;94m#[0m     [0;1;33;93m"[0;1;32;92m#[0m   [0;1;34;94m#[0m             [0;1;35;95m#[0m    [0;1;33;93m#[0m    [0;1;34;94m#[0m [0;1;35;95m#[0m      [0;1;32;92m#[0m   [0;1;34;94m"[0;1;35;95mm[0m [0;1;31;91m#[0m        [0;1;34;94m"[0m   
- [0;1;34;94m#[0m    [0;1;33;93m#[0m [0;1;32;92m#m[0;1;36;96mmm[0;1;34;94mmm[0m [0;1;35;95m#[0m    [0;1;32;92m#[0m  [0;1;36;96m#[0;1;34;94mmm[0;1;35;95m#[0m  [0;1;31;91m"[0;1;33;93mmm[0;1;32;92mm#[0;1;36;96m"[0m   [0;1;35;95m#[0m             [0;1;31;91m#[0m    [0;1;32;92m#[0m    [0;1;35;95m#[0m [0;1;31;91m#m[0;1;33;93mmm[0;1;32;92mmm[0m [0;1;36;96m#[0m    [0;1;31;91m"[0m [0;1;33;93m#m[0;1;32;92mmm[0;1;36;96mmm[0m   [0;1;35;95m#[0m   
-EOF
-                          In order to push updates and fix things post installati                                                                 
 
 blue Enabling Network Manager...
 systemctl enable NetworkManager
 systemctl start NetworkManager
 
-blue Getting rid of that retarded error beep sound...
+blue Getting rid of that error beep sound...
 rmmod pcspkr
 echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
@@ -352,20 +283,13 @@ curl https://raw.githubusercontent.com/vegarab/varbs/master/src/sudoers > /etc/s
 blue Adding updates and minor fixes...
 
 blue Installing new packer... 
-wget https://raw.githubusercontent.com/vegarab/varbs/master/src/updates/packer.sh
-sudo -u $NAME bash packer.sh
+sudo pacman --noconfirm --needed -S fakeroot jshon expac git wget --noconfirm
 
-blue pywal three point one fix... 
-wget https://raw.githubusercontent.com/vegarab/varbs/master/src/updates/pywal-fix.sh
-sudo -u $NAME bash pywal-fix.sh
-
-blue installing conda and setting up python env
-wget https://raw.githubusercontent.com/vegarab/varbs/master/src/updates/conda.sh
-sudo -u $NAME bash conda.sh
-
-blue installing xorg modules
-wget https://raw.githubusercontent.com/vegarab/varbs/master/src/updates/xorg-modules.sh
-sudo -u $NAME bash xorg-modules.sh
+cd /tmp
+wget https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=packer
+mv PKGBUILD\?h\=packer PKGBUILD
+makepkg
+pacman -U packer-*.pkg.tar.xz --noconfirm --needed
 
 dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden errors, the script completed successfully and all the programs and configuration files should be in place.\n\nTo run the new graphical environment, log out and log back in as your new user, then run the command \"startx\" to start the graphical environment.\n\n-Luke&Vegar" 12 80
 clear
