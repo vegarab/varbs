@@ -42,7 +42,7 @@ bash varbs.sh #Runs it.
 ```
 
 After prompting you for some settings and some package choices, the system will
-install my full i3-gaps tiling window manager Desktop Environment.
+install my full DWM tiling window manager Desktop Environment.
 
 Finally, it will use `git` to download my
 [Dotfiles](https://github.com/vegarab/dotfiles)
