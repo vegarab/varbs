@@ -111,6 +111,13 @@ pacman --noconfirm --needed -Sy \
 	ttf-dejavu \
 	dmenu \
 	slock \
+	xclip \
+	dunst \
+	ttf-cascadia-code \
+	xorg-xinput \
+	xorg-setxkbmap \
+	xorg-xbacklight \
+	ttf-dejavu
 	htop || (red Error installing system basics. Check your internet connection and pacman keyring.)
 
 
@@ -126,7 +133,6 @@ pacman --noconfirm --needed -Sy \
 	poppler \
 	mupdf \
 	evince \
-	xclip \
 	yarn \
 	python-pynvim \
 	pandoc || (red Error installing productivity packages. Check your internet connection and pacman keyring.)
@@ -253,12 +259,12 @@ cat << "EOF"
                  ||    ||     
 EOF
 
-curl https://raw.githubusercontent.com/vegarab/varbs/dev/src/sudoers_tmp > /etc/sudoers 
+curl https://raw.githubusercontent.com/vegarab/varbs/master/src/sudoers_tmp > /etc/sudoers 
 
 cd /tmp
 blue Changing working directory to /tmp/...
 blue Downloading next portion of the script \(varbs_user.sh\)...
-curl https://raw.githubusercontent.com/vegarab/varbs/dev/src/varbs_user.sh > /tmp/varbs_user.sh && blue Running varbs_user.sh script as $NAME...
+curl https://raw.githubusercontent.com/vegarab/varbs/master/src/varbs_user.sh > /tmp/varbs_user.sh && blue Running varbs_user.sh script as $NAME...
 sudo -u $NAME bash /tmp/varbs_user.sh || red Error when running varbs_user.sh...
 rm -f /tmp/varbs_user.sh
 
@@ -272,25 +278,18 @@ rmmod pcspkr
 echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
 blue Implementing temporary sudoers file...
-curl https://raw.githubusercontent.com/vegarab/varbs/dev/src/sudoers > /etc/sudoers 
+curl https://raw.githubusercontent.com/vegarab/varbs/master/src/sudoers > /etc/sudoers 
 
 blue Adding updates and minor fixes...
 
 blue Installing new packer... 
-wget https://raw.githubusercontent.com/vegarab/varbs/dev/src/updates/packer.sh
-sudo -u $NAME bash packer.sh
+sudo pacman --noconfirm --needed -S fakeroot jshon expac git wget --noconfirm
 
-blue pywal three point one fix... 
-wget https://raw.githubusercontent.com/vegarab/varbs/dev/src/updates/pywal-fix.sh
-sudo -u $NAME bash pywal-fix.sh
-
-blue installing conda and setting up python env
-wget https://raw.githubusercontent.com/vegarab/varbs/dev/src/updates/conda.sh
-sudo -u $NAME bash conda.sh
-
-blue installing xorg modules
-wget https://raw.githubusercontent.com/vegarab/varbs/dev/src/updates/xorg-modules.sh
-sudo -u $NAME bash xorg-modules.sh
+cd /tmp
+wget https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=packer
+mv PKGBUILD\?h\=packer PKGBUILD
+makepkg
+pacman -U packer-*.pkg.tar.xz --noconfirm --needed
 
 dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden errors, the script completed successfully and all the programs and configuration files should be in place.\n\nTo run the new graphical environment, log out and log back in as your new user, then run the command \"startx\" to start the graphical environment.\n\n-Luke&Vegar" 12 80
 clear

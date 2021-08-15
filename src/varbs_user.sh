@@ -38,9 +38,7 @@ blue \(This may take some time.\)
 
 gpg --recv-keys 5FAF0A6EE7371805 #Add the needed gpg key for neomutt
 
-aurcheck packer i3-gaps vim-pathogen tamzen-font-git neomutt unclutter-xfixes-git urxvt-resize-font-git polybar python-pywal xfce-theme-blackbird fzf-git arc-gtk-theme ttf-monaco || red Error with basic AUR installations...
-#Also installing i3lock, since i3-gaps was only just now installed.
-sudo pacman -S --noconfirm --needed i3lock
+aurcheck packer vim-pathogen tamzen-font-git neomutt unclutter-xfixes-git  xfce-theme-blackbird fzf-git arc-gtk-theme ttf-monaco || red Error with basic AUR installations...
 
 #packer --noconfirm -S ncpamixer-git speedometer cli-visualizer
 
@@ -118,7 +116,6 @@ sudo make install
 blue Downloading config files...
 cd /home/$NAME/
 git clone https://github.com/vegarab/dotfiles.git dotfiles
-git checkout dev
 sudo rm -r .config .vimrc .vim .bashrc .xinitrc .Xresources .Xmodmap .gtkrc-2.0 .Xdefaults
 sudo ln -s /home/$NAME/dotfiles/.config /home/$NAME/.config
 sudo ln -s /home/$NAME/dotfiles/.vimrc /home/$NAME/.vimrc
@@ -137,8 +134,6 @@ mkdir /home/$NAME/docs
 mkdir /home/$NAME/dev
 mkdir /home/$NAME/pics
 mkdir /home/$NAME/dl
-
-
 
 blue Generating bash/ranger/qutebrowser shortcuts...
 cd /home/$NAME/
